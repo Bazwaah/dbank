@@ -1,0 +1,24 @@
+{
+  "overview": "DBANK is a decentralized finance (DeFi) banking app running on the Internet Computer. Users authenticate with Internet Identity, manage a wallet account, make deposits and withdrawals, earn simulated yield at 5% APY, and view full transaction history — all powered by a Motoko smart contract backend.",
+  "features": [
+    "Login with Internet Identity — secure, decentralized authentication",
+    "Account dashboard with live balance, total deposits, total withdrawals, and earned interest",
+    "Deposit and withdrawal forms with balance validation and instant feedback",
+    "Transaction history with filtering by type (all/deposits/withdrawals) and scrollable list",
+    "5% APY yield accrual displayed in real-time on the dashboard",
+    "Dark and light mode toggle with persistent preference",
+    "Responsive layout for desktop, tablet, and mobile"
+  ],
+  "category": "finance",
+  "tags": [
+    "defi",
+    "banking",
+    "motoko",
+    "internet-computer",
+    "wallet",
+    "yield",
+    "transactions",
+    "internet-identity"
+  ],
+  "last_updated": "2026-04-29T23:55:24.599Z"
+}

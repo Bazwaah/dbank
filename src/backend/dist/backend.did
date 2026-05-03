@@ -1,0 +1,39 @@
+type WithdrawalResult = 
+ variant {
+   err: text;
+   ok: AccountInfo;
+ };
+type UserId = principal;
+type TransactionType = 
+ variant {
+   deposit;
+   withdrawal;
+ };
+type Transaction = 
+ record {
+   amount: float64;
+   balanceAfter: float64;
+   id: nat;
+   timestamp: Timestamp;
+   txType: TransactionType;
+ };
+type Timestamp = int;
+type DepositResult = 
+ variant {
+   err: text;
+   ok: AccountInfo;
+ };
+type AccountInfo = 
+ record {
+   balance: float64;
+   earnedYield: float64;
+   owner: UserId;
+   totalDeposits: float64;
+   totalWithdrawals: float64;
+ };
+service : {
+  deposit: (amount: float64) -> (DepositResult);
+  getAccount: () -> (AccountInfo);
+  getTransactions: () -> (vec Transaction) query;
+  withdraw: (amount: float64) -> (WithdrawalResult);
+}

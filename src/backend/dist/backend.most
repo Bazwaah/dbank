@@ -1,0 +1,55 @@
+// Version: 1.0.0
+type Account__803880902 =
+  {
+    var balance : Float;
+    var lastYieldTimestamp : Timestamp__699045399;
+    owner : UserId__334081655;
+    var totalDeposits : Float;
+    var totalWithdrawals : Float
+  };
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Int__270357528 = Int__616954475;
+type Int__616954475 = Int;
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type List__415060402<T> = List__790383201<T>;
+type List__790383201<T> =
+  {
+    var blockIndex : Nat__490723111;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__490723111
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type Time__796480547 = Int__270357528;
+type Time__900049286 = Time__796480547;
+type Timestamp__699045399 = Time__900049286;
+type TransactionType__693306122 = {#deposit; #withdrawal};
+type Transaction__704455964 =
+  {
+    amount : Float;
+    balanceAfter : Float;
+    id : Nat;
+    timestamp : Timestamp__699045399;
+    txType : TransactionType__693306122
+  };
+type UserId__334081655 = Principal;
+actor {
+  stable accounts :
+    {
+      var root : Node__46230540<UserId__334081655, Account__803880902>;
+      var size : Nat__490723111
+    };
+  stable var nextTxId : Nat;
+  stable transactions :
+    {
+      var root :
+        Node__46230540<UserId__334081655,
+                        List__415060402<Transaction__704455964>>;
+      var size : Nat__490723111
+    }
+};
